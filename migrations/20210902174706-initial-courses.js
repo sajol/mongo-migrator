@@ -18,6 +18,6 @@ module.exports = {
     },
 
     async down(db, client) {
-        await db.collection('courses').deleteMany({or: [{"code": "CSE707"}, {"code": "CSE710"}, {"code": "CSE716"}]});
+        await db.collection('courses').deleteMany({$or: [{"code": "CSE707"}, {"code": "CSE710"}, {"code": "CSE716"}]});
     }
 };
