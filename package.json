@@ -3,17 +3,28 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sajol/mongo-migrator.git"
   },
   "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.5",
+    "body-parser": "^1.19.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
+    "handlebars": "^4.7.7",
     "hbs": "^4.1.2",
     "http-errors": "~1.6.3",
     "mongoclient": "^1.0.3",
     "mongodb": "^4.1.1",
     "mongoose": "^6.0.4",
     "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "express-handlebars": "^5.3.3"
   }
 }

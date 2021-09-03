@@ -1,0 +1,22 @@
+<h3><a class="btn btn-secondary" href="/course"><i class="fa fa-plus"></i> Create New</a> Course Catalog</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.code}}</td>
+            <td>{{this.name}}</td>
+            <td>
+                <a href="/course/{{this.code}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/course/delete/{{this.code}}" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
