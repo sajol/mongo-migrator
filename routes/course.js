@@ -4,49 +4,24 @@ const mongoose = require('mongoose');
 const Course = mongoose.model('Course');
 
 router.get('/', (req, res) => {
-    res.render("course/addOrEdit", {
+    res.render("course/upsert", {
         viewTitle: "Add Course"
     });
 });
 
 router.post('/', (req, res) => {
-    if (req.body.code === '') {
-        insertRecord(req, res);
-    } else {
-        updateRecord(req, res);
-    }
+    upsertRecord(req, res);
 });
 
-
-function insertRecord(req, res) {
-    const course = new Course();
-    course.code = req.body.code;
-    course.name = req.body.name;
-    course.save((err, doc) => {
-        if (!err) {
-            res.redirect('course/list');
-            console.log(doc);
-        } else {
-            if (err.name === 'ValidationError') {
-                handleValidationError(err, req.body);
-                res.render("course/addOrEdit", {
-                    viewTitle: "Add Course",
-                    employee: req.body
-                });
-            } else
-                console.log('Error while adding course : ' + err);
-        }
-    });
-}
-
-function updateRecord(req, res) {
-    Course.findOneAndUpdate({code: req.body.code}, req.body, {new: true}, (err, doc) => {
+function upsertRecord(req, res) {
+    let options = {upsert: true, new: true};
+    Course.findOneAndUpdate({code: req.body.code}, req.body, options, (err, doc) => {
         if (!err) {
             res.redirect('course/list');
         } else {
             if (err.name === 'ValidationError') {
                 handleValidationError(err, req.body);
-                res.render("course/addOrEdit", {
+                res.render("course/upsert", {
                     viewTitle: 'Update Course',
                     employee: req.body
                 });
@@ -89,7 +64,7 @@ function handleValidationError(err, body) {
 router.get('/:code', (req, res) => {
     Course.findOne({code: req.params.code}, (err, doc) => {
         if (!err) {
-            res.render("course/addOrEdit", {
+            res.render("course/upsert", {
                 viewTitle: "Update Course",
                 course: doc
             });
