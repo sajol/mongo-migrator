@@ -1,7 +1,8 @@
 # Mongo Migrator
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 This is a project to show how mongodb migration works. This project has been built using expressjs. To make the migration work easier a library 
-named **migrate-mongo** has been used. For more details follow this [https://github.com/seppevs/migrate-mongo#readme]([https://github.com/seppevs/migrate-mongo#readme)
+named **migrate-mongo** has been used. For more details follow this link 
+[https://github.com/seppevs/migrate-mongo#readme]([https://github.com/seppevs/migrate-mongo#readme).
 
 # Running the project
 This project has a GUI to show the data. Following applications/software/library needs to be installed as a prerequisite to run the GUI:
