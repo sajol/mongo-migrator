@@ -20,6 +20,11 @@ Now clone the project. Go to the project directory. Then run the following comma
 npm install
 ```
 
+Now it is time to run the project. Run the following command:
+```
+npm start
+
+
 If everything works fine then you should see the following output:
 ```
 Express server started at port : 3000
