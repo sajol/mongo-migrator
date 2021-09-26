@@ -23,9 +23,9 @@ npm install
 Now it is time to run the project. Run the following command:
 ```
 npm start
-
-
+```
 If everything works fine then you should see the following output:
+
 ```
 Express server started at port : 3000
 Connection successful.
